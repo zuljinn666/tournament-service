@@ -4,13 +4,14 @@ services:
   app:
     image: zuljinn666/tournament-service:1.0.0
     depends_on:
-      - mysql
+      - mongo
     ports:
       - 0.0.0.0:3000:3000
     environment:
       DB_NAME: ${DB_NAME}
       PORT: ${PORT}
       MONGO_DB_HOST: ${MONGO_DB_HOST}
+      MONGO_DB_PORT: ${MONGO_DB_PORT}
     restart: on-failure:5
 
   mongo:
@@ -19,4 +20,6 @@ services:
       - 0.0.0.0:3306:3306
     environment:
       DB_NAME: ${DB_NAME}
+      MONGO_DB_HOST: ${MONGO_DB_HOST}
+      MONGO_DB_PORT: ${MONGO_DB_PORT}
     restart: on-failure:5
