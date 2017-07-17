@@ -17,9 +17,5 @@ services:
   mongo:
     image: mongo:3.2
     ports:
-      - 0.0.0.0:3306:3306
-    environment:
-      DB_NAME: ${DB_NAME}
-      MONGO_DB_HOST: ${MONGO_DB_HOST}
-      MONGO_DB_PORT: ${MONGO_DB_PORT}
+      - 0.0.0.0:3306:27017
     restart: on-failure:5
