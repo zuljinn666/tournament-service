@@ -1,0 +1,12 @@
+{
+  "apps" : [{
+    "name": "tournament-service",
+    "script": "index.js",
+    "env": {
+      "NODE_ENV": "develop",
+    },
+    "env_production": {
+      "NODE_ENV": "production",
+    }
+  }]
+}
