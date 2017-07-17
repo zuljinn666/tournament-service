@@ -1,6 +1,6 @@
 {
   "name": "tournament-service",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": ":Lifland Tournament Test Application",
   "main": "index.js",
   "author": "Kapnulin Evgenii Simbirsoft",
