@@ -6,7 +6,7 @@ services:
     depends_on:
       - mongo
     ports:
-      - 0.0.0.0:3000:3000
+      - 0.0.0.0:3003:3003
     environment:
       DB_NAME: ${DB_NAME}
       PORT: ${PORT}
