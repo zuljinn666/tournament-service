@@ -2,7 +2,7 @@ version: '2'
 services:
 
   app:
-    image: zuljinn666/tournament-service:1.0.0
+    image: zuljinn666/tournament-service:1.0.1
     depends_on:
       - mongo
     ports:

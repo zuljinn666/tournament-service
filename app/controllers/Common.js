@@ -86,9 +86,12 @@ router.post('/resultTournament', function *() {
 
 router.get('/reset', function *() {
   try {
-    yield DB.dropDB();
+    yield DB.resetDB();
+
+    this.status = 200;
+    this.body = 'Database Reset Successfull';
   } catch(error) {
-    errorResponse.bind(this)(new HttpError(404, 'Drop Database Failure'));
+    errorResponse.bind(this)(new HttpError(404, 'Database Reset Failure'));
   }
 });
 

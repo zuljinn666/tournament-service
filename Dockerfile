@@ -1,6 +1,8 @@
 
 FROM keymetrics/pm2-docker-alpine:6
 
+RUN apk --no-cache add git
+
 ADD app/ /opt/tournament-service/
 
 WORKDIR /opt/tournament-service

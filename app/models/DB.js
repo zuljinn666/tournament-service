@@ -156,11 +156,28 @@ class DB {
     return this.Model.remove(conditions);
   }
 
-  static dropDB() {
+  static resetDB() {
     return new Promise((resolve, reject) => {
-      mongoose.connection.db.dropDatabase(error => {
-        if (err) { return reject(error); }
-        return resolve();
+      mongoose.connection.db.listCollections().toArray(function (error, collections) {
+        if (error) { throw error; }
+
+        let names = collections.map(collection => collection.name);
+
+        let promises = [];
+        for (let name of names) {
+          promises.push(new Promise((resolve, reject) => {
+            mongoose.connection.db.dropCollection(name, (error) => {
+              if (error) { reject(error); }
+              return resolve();
+            });
+          }));
+        }
+        
+        return Promise.all(promises)
+          .then(result => resolve())
+          .catch((error) => {
+            throw error;
+          });
       });
     });
   }
